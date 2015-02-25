@@ -1,0 +1,26 @@
+{% load staticfiles %}<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tag search</title>
+    <link rel="stylesheet" href="{% static 'estilo.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKtljqcfvQNVIA3NZRAif3ls6EZ6Kij4g">
+    </script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+    <body>
+    <div id="map-canvas"></div>
+    <div id="over">
+        <p>Buscar <input type="text" id="query"  /> en <input type="text" id="km" value="15" /> Km <img id="buscar" src="{% static 'search.png' %}" /></p>
+    </div>
+    <!--<script src="js/scripts.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
+    <h1></h1>
+</body>
+</html>
