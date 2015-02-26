@@ -5,8 +5,9 @@
     <title>Tag search</title>
     <link rel="stylesheet" href="{% static 'estilo.css' %}">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKtljqcfvQNVIA3NZRAif3ls6EZ6Kij4g">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{google_key}}"></script>
+    <script type="text/javascript">
+        window.appLocation = '{% url 'app_home'%}'
     </script>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

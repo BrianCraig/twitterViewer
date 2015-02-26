@@ -92,7 +92,7 @@ App.buscar = function () {
   var km = document.getElementById('km').value
 
   $.get(
-    "/api/buscar/" + query + "/", {
+    appLocation+"buscar/" + query + "/", {
         lat : App.obtenerPosicion().lat(),
         lng : App.obtenerPosicion().lng(),
         km : km
@@ -103,25 +103,5 @@ App.buscar = function () {
   );
 
 }
-
-
-
-function addmarker(obj) {
-  var myLatlng = new google.maps.LatLng(obj[0], obj[1]);
-
-  // To add the marker to the map, use the 'map' property
-  var marker = new google.maps.Marker({
-    position: myLatlng,
-    map: map,
-    title: "Hello World!"
-  });
-  google.maps.event.addListener(marker, 'click', function () {
-    console.log(marker.getPosition());
-    console.log(marker)
-    console.log(obj)
-  });
-  console.log(marker)
-}
-
 
 google.maps.event.addDomListener(window, 'load', App.inicializar);
