@@ -30,18 +30,39 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'django.contrib.auth',
     'django.contrib.staticfiles',
     'app',
+    'userena',
+    'guardian',
+    'easy_thumbnails',
+    'usuarios',
+    'django.contrib.contenttypes',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 MIDDLEWARE_CLASSES = (
+        'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+
 )
 
 ROOT_URLCONF = 'twitterViewer.urls'
 
 WSGI_APPLICATION = 'twitterViewer.wsgi.application'
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 # Internationalization
@@ -61,5 +82,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+USERENA_SIGNIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+
+USERENA_ACTIVATION_REQUIRED = False
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'briancraigok@gmail.com'
+EMAIL_HOST_PASSWORD = 'marroc_22'
+
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+ANONYMOUS_USER_ID = -1
+
+AUTH_PROFILE_MODULE = 'usuarios.Perfil'
